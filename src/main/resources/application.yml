@@ -1,0 +1,22 @@
+spring:
+  ai:
+    openai:
+      api-key: ${BAILIAN_API_KEY}     # 这个是 Embedding 的 Key
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      embedding:
+      options:
+          model: text-embedding-v3
+      chat:
+        base-url: https://api.deepseek.com       # Chat 用 DeepSeek 的地址
+        api-key: ${DEEPSEEK_API_KEY}                 # DeepSeek 的 Key
+        options:
+          model: deepseek-chat                   # DeepSeek 的对话模型
+          temperature: 0.3                       # 温度调低，减少发散，降低幻觉
+          # 新增：超时控制
+          timeout: 30000            # 单次请求最长 30 秒
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 3000ms
